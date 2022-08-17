@@ -31,8 +31,6 @@
             this.listViewDisplay = new System.Windows.Forms.ListView();
             this.dataStructureName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataStructureCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dataStructureType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dataStructureDefinition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.textBoxDefinition = new System.Windows.Forms.TextBox();
             this.textBoxStructure = new System.Windows.Forms.TextBox();
@@ -49,6 +47,10 @@
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.statusStripBar = new System.Windows.Forms.StatusStrip();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonOpen = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStripBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewDisplay
@@ -56,16 +58,15 @@
             this.listViewDisplay.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.listViewDisplay.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.dataStructureName,
-            this.dataStructureCategory,
-            this.dataStructureType,
-            this.dataStructureDefinition});
+            this.dataStructureCategory});
             this.listViewDisplay.HideSelection = false;
             this.listViewDisplay.Location = new System.Drawing.Point(346, 38);
             this.listViewDisplay.Name = "listViewDisplay";
-            this.listViewDisplay.Size = new System.Drawing.Size(586, 376);
+            this.listViewDisplay.Size = new System.Drawing.Size(484, 376);
             this.listViewDisplay.TabIndex = 0;
             this.listViewDisplay.UseCompatibleStateImageBehavior = false;
             this.listViewDisplay.View = System.Windows.Forms.View.Details;
+            this.listViewDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewDisplay_MouseClick);
             // 
             // dataStructureName
             // 
@@ -76,16 +77,6 @@
             // 
             this.dataStructureCategory.Text = "Category";
             this.dataStructureCategory.Width = 78;
-            // 
-            // dataStructureType
-            // 
-            this.dataStructureType.Text = "Structure";
-            this.dataStructureType.Width = 82;
-            // 
-            // dataStructureDefinition
-            // 
-            this.dataStructureDefinition.Text = "Definition";
-            this.dataStructureDefinition.Width = 258;
             // 
             // textBoxSearch
             // 
@@ -131,6 +122,7 @@
             // labelSearch
             // 
             this.labelSearch.BackColor = System.Drawing.SystemColors.Info;
+            this.labelSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSearch.Location = new System.Drawing.Point(77, 38);
             this.labelSearch.Name = "labelSearch";
@@ -142,7 +134,8 @@
             // labelStructure
             // 
             this.labelStructure.BackColor = System.Drawing.SystemColors.Info;
-            this.labelStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelStructure.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStructure.Location = new System.Drawing.Point(77, 287);
             this.labelStructure.Name = "labelStructure";
             this.labelStructure.Size = new System.Drawing.Size(93, 40);
@@ -153,7 +146,8 @@
             // labelCategory
             // 
             this.labelCategory.BackColor = System.Drawing.SystemColors.Info;
-            this.labelCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelCategory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCategory.Location = new System.Drawing.Point(77, 215);
             this.labelCategory.Name = "labelCategory";
             this.labelCategory.Size = new System.Drawing.Size(93, 40);
@@ -164,7 +158,8 @@
             // labelName
             // 
             this.labelName.BackColor = System.Drawing.SystemColors.Info;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.Location = new System.Drawing.Point(77, 152);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(93, 40);
@@ -175,7 +170,8 @@
             // labelDefinition
             // 
             this.labelDefinition.BackColor = System.Drawing.SystemColors.Info;
-            this.labelDefinition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefinition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelDefinition.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDefinition.Location = new System.Drawing.Point(77, 362);
             this.labelDefinition.Name = "labelDefinition";
             this.labelDefinition.Size = new System.Drawing.Size(93, 40);
@@ -196,7 +192,7 @@
             // buttonClear
             // 
             this.buttonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonClear.Location = new System.Drawing.Point(689, 431);
+            this.buttonClear.Location = new System.Drawing.Point(248, 475);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(92, 38);
             this.buttonClear.TabIndex = 12;
@@ -206,7 +202,7 @@
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonDelete.Location = new System.Drawing.Point(568, 431);
+            this.buttonDelete.Location = new System.Drawing.Point(542, 431);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(92, 38);
             this.buttonDelete.TabIndex = 13;
@@ -216,7 +212,7 @@
             // buttonModify
             // 
             this.buttonModify.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonModify.Location = new System.Drawing.Point(458, 431);
+            this.buttonModify.Location = new System.Drawing.Point(444, 431);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Size = new System.Drawing.Size(92, 38);
             this.buttonModify.TabIndex = 14;
@@ -232,20 +228,52 @@
             this.buttonAdd.TabIndex = 15;
             this.buttonAdd.Text = "ADD";
             this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonAdd_MouseClick);
             // 
             // statusStripBar
             // 
-            this.statusStripBar.Location = new System.Drawing.Point(0, 539);
+            this.statusStripBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStripBar.Location = new System.Drawing.Point(0, 535);
             this.statusStripBar.Name = "statusStripBar";
             this.statusStripBar.Size = new System.Drawing.Size(945, 22);
             this.statusStripBar.TabIndex = 16;
             this.statusStripBar.Text = "statusStrip1";
             // 
+            // buttonSave
+            // 
+            this.buttonSave.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonSave.Location = new System.Drawing.Point(640, 431);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(92, 38);
+            this.buttonSave.TabIndex = 17;
+            this.buttonSave.Text = "SAVE";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonOpen.Location = new System.Drawing.Point(738, 431);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(92, 38);
+            this.buttonOpen.TabIndex = 18;
+            this.buttonOpen.Text = "OPEN";
+            this.buttonOpen.UseVisualStyleBackColor = false;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabel1.Text = "Message";
+            // 
             // FormDataStructureMatrix
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 561);
+            this.ClientSize = new System.Drawing.Size(945, 557);
+            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.statusStripBar);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonModify);
@@ -265,6 +293,8 @@
             this.Controls.Add(this.listViewDisplay);
             this.Name = "FormDataStructureMatrix";
             this.Text = "Data Structure Matrix";
+            this.statusStripBar.ResumeLayout(false);
+            this.statusStripBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,8 +305,6 @@
         private System.Windows.Forms.ListView listViewDisplay;
         private System.Windows.Forms.ColumnHeader dataStructureName;
         private System.Windows.Forms.ColumnHeader dataStructureCategory;
-        private System.Windows.Forms.ColumnHeader dataStructureType;
-        private System.Windows.Forms.ColumnHeader dataStructureDefinition;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.TextBox textBoxDefinition;
         private System.Windows.Forms.TextBox textBoxStructure;
@@ -293,6 +321,9 @@
         private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.StatusStrip statusStripBar;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
