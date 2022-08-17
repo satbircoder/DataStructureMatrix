@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,92 @@ namespace DataStructureMatrix
         private static int maxAttributes = 4;
         private int ptr = 0;
         private string[,] ArrayWikiStorage = new string [maxRows, maxAttributes];
+        private string defaultFileName = "definitions.bin";
 
+        #region OpenFIle
+        private void OpenBinFile(string openFileName)
+        {
+            try
+            {
+                using(Stream stream = File.Open(openFileName, FileMode.Open))
+                {
+                    using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
+                    {
+                        int x = 0;
+                        Array.Clear(ArrayWikiStorage, 0, ArrayWikiStorage.Length);
+                        while(stream.Position < stream.Length)
+                        {
+                            for(int y = 0; y < maxAttributes; y++)
+                            {
+                                ArrayWikiStorage[x, y] = reader.ReadString();
+                            }
+                            x++;
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            DisplayArrayListViev();
+        }
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Application.StartupPath;
+            openFileDialog.Filter = "BIN FILES|*.bin";
+            openFileDialog.Title = "Open A Binary File";
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                OpenBinFile(openFileDialog.FileName);
+            }
+        }
+        #endregion OpenFile
+
+        #region SaveFile
+        private void SaveBinFile(string saveFileName)
+        {
+            try
+            {
+                using(Stream stream = File.Open(saveFileName, FileMode.Create))
+                {
+                    using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
+                    {
+                        for(int i = 0; i < maxRows; i++)
+                        {
+                            for(int j=0; j < maxAttributes; j++)
+                            {
+                                writer.Write(ArrayWikiStorage[i, j]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch(IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "bin file|*.bin";
+            saveFileDialog.Title = "Save A Binary File";
+            saveFileDialog.InitialDirectory = Application.StartupPath;
+            saveFileDialog.DefaultExt = "bin";
+            saveFileDialog.ShowDialog();
+            string fileName = saveFileDialog.FileName;
+            if(saveFileDialog.FileName != "")
+            {
+                SaveBinFile(fileName);
+            }
+            else
+            {
+                SaveBinFile(defaultFileName);
+            }
+        }
+        #endregion SaveFile
         private void DisplayArrayListViev()
         {
             listViewDisplay.Items.Clear();
@@ -70,6 +156,10 @@ namespace DataStructureMatrix
             textBoxDefinition.Clear();
             textBoxSearch.Clear();
         }
+        private void buttonClear_MouseClick(object sender, MouseEventArgs e)
+        {
+            CLearTextBox();
+        }
         #endregion Utilities
 
         #region Selected Items View
@@ -106,17 +196,17 @@ namespace DataStructureMatrix
                     ArrayGetter("Graph", "Graphs", "Non-Linear", "A graph is a data structure that organizes data according to the relationships of its elements in a geometric space. The elements are usually vertices (points in the graph) and edges (the connections between vertices).");
                     ArrayGetter("Set", "Abstract", "Non-Linear", "A set of collection of objects need not to be in any particular order. It is just applying the mathematical concepts in computer where elements should not be repeated and they should have valid reason to be in the set.");
                     ArrayGetter("Queue", "Abstract", "Linear", "A queue is a sequential collection where elements are added to the end of the queue, and removed from the beginning. It is a FIFO data structure (first in, first out ). It is most efficiently implemented with a doubly-linked list.");
-                    ArrayGetter("Stack", "Abstarct", "Liear", "A stack is a sequential collection of elements where only the last element (at the top of the stack) can be modified. A new element can be pushed onto the stack, in which case, it becomes the last element of the stack, and the stack's length increases by 1.");
-                    ArrayGetter("Hash Table", "Hash", "Non-Linear", "A hash table or hash map is a type of associative array where the keys are the computed hashes of their values");
+                    //ArrayGetter("Stack", "Abstarct", "Liear", "A stack is a sequential collection of elements where only the last element (at the top of the stack) can be modified. A new element can be pushed onto the stack, in which case, it becomes the last element of the stack, and the stack's length increases by 1.");
+                    //ArrayGetter("Hash Table", "Hash", "Non-Linear", "A hash table or hash map is a type of associative array where the keys are the computed hashes of their values");
                 }
                 catch
                 {
                     MessageBox.Show("Did not Work");
                 }
             }
-            else
+            if (ptr == maxRows)
             {
-                MessageBox.Show("No Space");
+                buttonAdd.Enabled = false;
             }
 
         }
@@ -129,7 +219,11 @@ namespace DataStructureMatrix
             ptr++;
         }
 
+
+
         #endregion Array Loader
+
+        
     }
 
 }

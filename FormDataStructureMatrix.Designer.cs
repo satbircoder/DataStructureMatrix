@@ -198,6 +198,7 @@
             this.buttonClear.TabIndex = 12;
             this.buttonClear.Text = "CLEAR";
             this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonClear_MouseClick);
             // 
             // buttonDelete
             // 
@@ -256,6 +257,7 @@
             this.buttonSave.TabIndex = 17;
             this.buttonSave.Text = "SAVE";
             this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonOpen
             // 
@@ -266,6 +268,7 @@
             this.buttonOpen.TabIndex = 18;
             this.buttonOpen.Text = "OPEN";
             this.buttonOpen.UseVisualStyleBackColor = false;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // FormDataStructureMatrix
             // 
