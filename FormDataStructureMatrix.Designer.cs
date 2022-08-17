@@ -47,9 +47,9 @@
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.statusStripBar = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonOpen = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStripBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,10 +89,10 @@
             // 
             // textBoxDefinition
             // 
-            this.textBoxDefinition.Location = new System.Drawing.Point(187, 362);
+            this.textBoxDefinition.Location = new System.Drawing.Point(187, 346);
             this.textBoxDefinition.Multiline = true;
             this.textBoxDefinition.Name = "textBoxDefinition";
-            this.textBoxDefinition.Size = new System.Drawing.Size(153, 107);
+            this.textBoxDefinition.Size = new System.Drawing.Size(153, 142);
             this.textBoxDefinition.TabIndex = 2;
             // 
             // textBoxStructure
@@ -192,7 +192,7 @@
             // buttonClear
             // 
             this.buttonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonClear.Location = new System.Drawing.Point(248, 475);
+            this.buttonClear.Location = new System.Drawing.Point(248, 494);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(92, 38);
             this.buttonClear.TabIndex = 12;
@@ -240,6 +240,13 @@
             this.statusStripBar.TabIndex = 16;
             this.statusStripBar.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabel1.Text = "Message";
+            // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -259,13 +266,6 @@
             this.buttonOpen.TabIndex = 18;
             this.buttonOpen.Text = "OPEN";
             this.buttonOpen.UseVisualStyleBackColor = false;
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
-            this.toolStripStatusLabel1.Text = "Message";
             // 
             // FormDataStructureMatrix
             // 
@@ -293,6 +293,7 @@
             this.Controls.Add(this.listViewDisplay);
             this.Name = "FormDataStructureMatrix";
             this.Text = "Data Structure Matrix";
+            this.Load += new System.EventHandler(this.FormDataStructureMatrix_Load);
             this.statusStripBar.ResumeLayout(false);
             this.statusStripBar.PerformLayout();
             this.ResumeLayout(false);
