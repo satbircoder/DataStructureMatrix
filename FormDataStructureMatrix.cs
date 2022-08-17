@@ -43,11 +43,7 @@ namespace DataStructureMatrix
             {
                 try
                 {
-                    ArrayWikiStorage[ptr, 0] = textBoxName.Text;
-                    ArrayWikiStorage[ptr, 1] = textBoxCategory.Text;
-                    ArrayWikiStorage[ptr, 2] = textBoxStructure.Text;
-                    ArrayWikiStorage[ptr, 3] = textBoxDefinition.Text;
-                    ptr++;
+                    ArrayGetter(textBoxName.Text, textBoxCategory.Text,textBoxStructure.Text,textBoxDefinition.Text);
                     toolStripStatusLabel1.Text = "Record Added";  
                 }
                 
