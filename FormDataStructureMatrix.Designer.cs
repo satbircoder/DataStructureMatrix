@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ListViewDisplay = new System.Windows.Forms.ListView();
             this.dataStructureName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataStructureCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,6 +51,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ButtonSave = new System.Windows.Forms.Button();
             this.ButtonOpen = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.statusStripBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +71,7 @@
             this.ListViewDisplay.View = System.Windows.Forms.View.Details;
             this.ListViewDisplay.SelectedIndexChanged += new System.EventHandler(this.ListViewDisplay_SelectedIndexChanged);
             this.ListViewDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListViewDisplay_MouseClick);
+            
             // 
             // dataStructureName
             // 
@@ -334,6 +337,7 @@
         private System.Windows.Forms.Button ButtonSave;
         private System.Windows.Forms.Button ButtonOpen;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

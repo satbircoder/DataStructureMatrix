@@ -484,7 +484,19 @@ namespace DataStructureMatrix
         {
             ArrayLoader();
             InitiliseArray();
-
+            toolTip1.SetToolTip(ButtonAdd, "Click To Add Record");
+            toolTip1.SetToolTip(ButtonSearch, "Click To Search Record");
+            toolTip1.SetToolTip(ButtonModify, "Click To Edit Record");
+            toolTip1.SetToolTip(ButtonDelete, "Click To Delete Record");
+            toolTip1.SetToolTip(ButtonClear, "Click To Clear Text Boxes Record");
+            toolTip1.SetToolTip(ButtonOpen, "Click To Load Data");
+            toolTip1.SetToolTip(ButtonSave, "Click To Save Record");
+            toolTip1.SetToolTip(TextBoxName, "Display The Name of the Data Structure Once Selected");
+            toolTip1.SetToolTip(TextBoxCategory, "Display and add Data Structure Category using this box");
+            toolTip1.SetToolTip(TextBoxStructure, "Display and add Data Structure type using this box");
+            toolTip1.SetToolTip(TextBoxDefinition, "Display and add Data Structure Definition using this box");
+            toolTip1.SetToolTip(TextBoxSearch, "Enter data to search in the list");
+            toolTip1.SetToolTip(ListViewDisplay, "Click to select a row and Double click in empty region to clear text boxes and deselect an item");
         }
         private void ArrayLoader()
         {
@@ -527,7 +539,9 @@ namespace DataStructureMatrix
             }
                         
         }
+
         #endregion Array Loader
 
-        }
+        
+    }
 }
