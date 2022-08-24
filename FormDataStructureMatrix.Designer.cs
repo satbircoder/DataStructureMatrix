@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewDisplay = new System.Windows.Forms.ListView();
+            this.ListViewDisplay = new System.Windows.Forms.ListView();
             this.dataStructureName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataStructureCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.textBoxDefinition = new System.Windows.Forms.TextBox();
-            this.textBoxStructure = new System.Windows.Forms.TextBox();
-            this.textBoxCategory = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.labelSearch = new System.Windows.Forms.Label();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
+            this.TextBoxDefinition = new System.Windows.Forms.TextBox();
+            this.TextBoxStructure = new System.Windows.Forms.TextBox();
+            this.TextBoxCategory = new System.Windows.Forms.TextBox();
+            this.TextBoxName = new System.Windows.Forms.TextBox();
+            this.LabelSearch = new System.Windows.Forms.Label();
             this.labelStructure = new System.Windows.Forms.Label();
             this.labelCategory = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelDefinition = new System.Windows.Forms.Label();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonModify = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.ButtonSearch = new System.Windows.Forms.Button();
+            this.ButtonClear = new System.Windows.Forms.Button();
+            this.ButtonDelete = new System.Windows.Forms.Button();
+            this.ButtonModify = new System.Windows.Forms.Button();
+            this.ButtonAdd = new System.Windows.Forms.Button();
             this.statusStripBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonOpen = new System.Windows.Forms.Button();
+            this.ButtonSave = new System.Windows.Forms.Button();
+            this.ButtonOpen = new System.Windows.Forms.Button();
             this.statusStripBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listViewDisplay
+            // ListViewDisplay
             // 
-            this.listViewDisplay.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listViewDisplay.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ListViewDisplay.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ListViewDisplay.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.dataStructureName,
             this.dataStructureCategory});
-            this.listViewDisplay.HideSelection = false;
-            this.listViewDisplay.Location = new System.Drawing.Point(346, 38);
-            this.listViewDisplay.Name = "listViewDisplay";
-            this.listViewDisplay.Size = new System.Drawing.Size(484, 376);
-            this.listViewDisplay.TabIndex = 0;
-            this.listViewDisplay.UseCompatibleStateImageBehavior = false;
-            this.listViewDisplay.View = System.Windows.Forms.View.Details;
-            this.listViewDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewDisplay_MouseClick);
+            this.ListViewDisplay.FullRowSelect = true;
+            this.ListViewDisplay.HideSelection = false;
+            this.ListViewDisplay.Location = new System.Drawing.Point(346, 38);
+            this.ListViewDisplay.Name = "ListViewDisplay";
+            this.ListViewDisplay.Size = new System.Drawing.Size(484, 376);
+            this.ListViewDisplay.TabIndex = 0;
+            this.ListViewDisplay.UseCompatibleStateImageBehavior = false;
+            this.ListViewDisplay.View = System.Windows.Forms.View.Details;
+            this.ListViewDisplay.SelectedIndexChanged += new System.EventHandler(this.ListViewDisplay_SelectedIndexChanged);
+            this.ListViewDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListViewDisplay_MouseClick);
             // 
             // dataStructureName
             // 
@@ -78,58 +80,58 @@
             this.dataStructureCategory.Text = "Category";
             this.dataStructureCategory.Width = 78;
             // 
-            // textBoxSearch
+            // TextBoxSearch
             // 
-            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(187, 38);
-            this.textBoxSearch.Multiline = true;
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(153, 40);
-            this.textBoxSearch.TabIndex = 1;
+            this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSearch.Location = new System.Drawing.Point(187, 38);
+            this.TextBoxSearch.Multiline = true;
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(153, 40);
+            this.TextBoxSearch.TabIndex = 1;
             // 
-            // textBoxDefinition
+            // TextBoxDefinition
             // 
-            this.textBoxDefinition.Location = new System.Drawing.Point(187, 346);
-            this.textBoxDefinition.Multiline = true;
-            this.textBoxDefinition.Name = "textBoxDefinition";
-            this.textBoxDefinition.Size = new System.Drawing.Size(153, 142);
-            this.textBoxDefinition.TabIndex = 2;
+            this.TextBoxDefinition.Location = new System.Drawing.Point(187, 346);
+            this.TextBoxDefinition.Multiline = true;
+            this.TextBoxDefinition.Name = "TextBoxDefinition";
+            this.TextBoxDefinition.Size = new System.Drawing.Size(153, 142);
+            this.TextBoxDefinition.TabIndex = 2;
             // 
-            // textBoxStructure
+            // TextBoxStructure
             // 
-            this.textBoxStructure.Location = new System.Drawing.Point(187, 287);
-            this.textBoxStructure.Multiline = true;
-            this.textBoxStructure.Name = "textBoxStructure";
-            this.textBoxStructure.Size = new System.Drawing.Size(153, 40);
-            this.textBoxStructure.TabIndex = 3;
+            this.TextBoxStructure.Location = new System.Drawing.Point(187, 287);
+            this.TextBoxStructure.Multiline = true;
+            this.TextBoxStructure.Name = "TextBoxStructure";
+            this.TextBoxStructure.Size = new System.Drawing.Size(153, 40);
+            this.TextBoxStructure.TabIndex = 3;
             // 
-            // textBoxCategory
+            // TextBoxCategory
             // 
-            this.textBoxCategory.Location = new System.Drawing.Point(187, 215);
-            this.textBoxCategory.Multiline = true;
-            this.textBoxCategory.Name = "textBoxCategory";
-            this.textBoxCategory.Size = new System.Drawing.Size(153, 40);
-            this.textBoxCategory.TabIndex = 4;
+            this.TextBoxCategory.Location = new System.Drawing.Point(187, 215);
+            this.TextBoxCategory.Multiline = true;
+            this.TextBoxCategory.Name = "TextBoxCategory";
+            this.TextBoxCategory.Size = new System.Drawing.Size(153, 40);
+            this.TextBoxCategory.TabIndex = 4;
             // 
-            // textBoxName
+            // TextBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(187, 152);
-            this.textBoxName.Multiline = true;
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(153, 40);
-            this.textBoxName.TabIndex = 5;
+            this.TextBoxName.Location = new System.Drawing.Point(187, 152);
+            this.TextBoxName.Multiline = true;
+            this.TextBoxName.Name = "TextBoxName";
+            this.TextBoxName.Size = new System.Drawing.Size(153, 40);
+            this.TextBoxName.TabIndex = 5;
             // 
-            // labelSearch
+            // LabelSearch
             // 
-            this.labelSearch.BackColor = System.Drawing.SystemColors.Info;
-            this.labelSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearch.Location = new System.Drawing.Point(77, 38);
-            this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(93, 40);
-            this.labelSearch.TabIndex = 6;
-            this.labelSearch.Text = "Search";
-            this.labelSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelSearch.BackColor = System.Drawing.SystemColors.Info;
+            this.LabelSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LabelSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelSearch.Location = new System.Drawing.Point(77, 38);
+            this.LabelSearch.Name = "LabelSearch";
+            this.LabelSearch.Size = new System.Drawing.Size(93, 40);
+            this.LabelSearch.TabIndex = 6;
+            this.LabelSearch.Text = "Search";
+            this.LabelSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelStructure
             // 
@@ -179,57 +181,60 @@
             this.labelDefinition.Text = "Definition";
             this.labelDefinition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonSearch
+            // ButtonSearch
             // 
-            this.buttonSearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonSearch.Location = new System.Drawing.Point(247, 85);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(92, 38);
-            this.buttonSearch.TabIndex = 11;
-            this.buttonSearch.Text = "SEARCH";
-            this.buttonSearch.UseVisualStyleBackColor = false;
+            this.ButtonSearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonSearch.Location = new System.Drawing.Point(247, 85);
+            this.ButtonSearch.Name = "ButtonSearch";
+            this.ButtonSearch.Size = new System.Drawing.Size(92, 38);
+            this.ButtonSearch.TabIndex = 11;
+            this.ButtonSearch.Text = "SEARCH";
+            this.ButtonSearch.UseVisualStyleBackColor = false;
+            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
-            // buttonClear
+            // ButtonClear
             // 
-            this.buttonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonClear.Location = new System.Drawing.Point(248, 494);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(92, 38);
-            this.buttonClear.TabIndex = 12;
-            this.buttonClear.Text = "CLEAR";
-            this.buttonClear.UseVisualStyleBackColor = false;
-            this.buttonClear.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonClear_MouseClick);
+            this.ButtonClear.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonClear.Location = new System.Drawing.Point(248, 494);
+            this.ButtonClear.Name = "ButtonClear";
+            this.ButtonClear.Size = new System.Drawing.Size(92, 38);
+            this.ButtonClear.TabIndex = 12;
+            this.ButtonClear.Text = "CLEAR";
+            this.ButtonClear.UseVisualStyleBackColor = false;
+            this.ButtonClear.Click += new System.EventHandler(this.ButtonClear_Click);
             // 
-            // buttonDelete
+            // ButtonDelete
             // 
-            this.buttonDelete.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonDelete.Location = new System.Drawing.Point(542, 431);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(92, 38);
-            this.buttonDelete.TabIndex = 13;
-            this.buttonDelete.Text = "DELETE";
-            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.ButtonDelete.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonDelete.Location = new System.Drawing.Point(542, 431);
+            this.ButtonDelete.Name = "ButtonDelete";
+            this.ButtonDelete.Size = new System.Drawing.Size(92, 38);
+            this.ButtonDelete.TabIndex = 13;
+            this.ButtonDelete.Text = "DELETE";
+            this.ButtonDelete.UseVisualStyleBackColor = false;
+            this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
-            // buttonModify
+            // ButtonModify
             // 
-            this.buttonModify.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonModify.Location = new System.Drawing.Point(444, 431);
-            this.buttonModify.Name = "buttonModify";
-            this.buttonModify.Size = new System.Drawing.Size(92, 38);
-            this.buttonModify.TabIndex = 14;
-            this.buttonModify.Text = "MODIFY";
-            this.buttonModify.UseVisualStyleBackColor = false;
+            this.ButtonModify.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonModify.Location = new System.Drawing.Point(444, 431);
+            this.ButtonModify.Name = "ButtonModify";
+            this.ButtonModify.Size = new System.Drawing.Size(92, 38);
+            this.ButtonModify.TabIndex = 14;
+            this.ButtonModify.Text = "MODIFY";
+            this.ButtonModify.UseVisualStyleBackColor = false;
+            this.ButtonModify.Click += new System.EventHandler(this.ButtonModify_Click);
             // 
-            // buttonAdd
+            // ButtonAdd
             // 
-            this.buttonAdd.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonAdd.Location = new System.Drawing.Point(346, 431);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(92, 38);
-            this.buttonAdd.TabIndex = 15;
-            this.buttonAdd.Text = "ADD";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonAdd_MouseClick);
+            this.ButtonAdd.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonAdd.Location = new System.Drawing.Point(346, 431);
+            this.ButtonAdd.Name = "ButtonAdd";
+            this.ButtonAdd.Size = new System.Drawing.Size(92, 38);
+            this.ButtonAdd.TabIndex = 15;
+            this.ButtonAdd.Text = "ADD";
+            this.ButtonAdd.UseVisualStyleBackColor = false;
+            this.ButtonAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonAdd_MouseClick);
             // 
             // statusStripBar
             // 
@@ -248,55 +253,56 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
             this.toolStripStatusLabel1.Text = "Message";
             // 
-            // buttonSave
+            // ButtonSave
             // 
-            this.buttonSave.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonSave.Location = new System.Drawing.Point(640, 431);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(92, 38);
-            this.buttonSave.TabIndex = 17;
-            this.buttonSave.Text = "SAVE";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.ButtonSave.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonSave.Location = new System.Drawing.Point(640, 431);
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.Size = new System.Drawing.Size(92, 38);
+            this.ButtonSave.TabIndex = 17;
+            this.ButtonSave.Text = "SAVE";
+            this.ButtonSave.UseVisualStyleBackColor = false;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
-            // buttonOpen
+            // ButtonOpen
             // 
-            this.buttonOpen.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonOpen.Location = new System.Drawing.Point(738, 431);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(92, 38);
-            this.buttonOpen.TabIndex = 18;
-            this.buttonOpen.Text = "OPEN";
-            this.buttonOpen.UseVisualStyleBackColor = false;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            this.ButtonOpen.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ButtonOpen.Location = new System.Drawing.Point(738, 431);
+            this.ButtonOpen.Name = "ButtonOpen";
+            this.ButtonOpen.Size = new System.Drawing.Size(92, 38);
+            this.ButtonOpen.TabIndex = 18;
+            this.ButtonOpen.Text = "OPEN";
+            this.ButtonOpen.UseVisualStyleBackColor = false;
+            this.ButtonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
             // 
             // FormDataStructureMatrix
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 557);
-            this.Controls.Add(this.buttonOpen);
-            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.ButtonOpen);
+            this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.statusStripBar);
-            this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.buttonModify);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.ButtonAdd);
+            this.Controls.Add(this.ButtonModify);
+            this.Controls.Add(this.ButtonDelete);
+            this.Controls.Add(this.ButtonClear);
+            this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.labelDefinition);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelCategory);
             this.Controls.Add(this.labelStructure);
-            this.Controls.Add(this.labelSearch);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.textBoxCategory);
-            this.Controls.Add(this.textBoxStructure);
-            this.Controls.Add(this.textBoxDefinition);
-            this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.listViewDisplay);
+            this.Controls.Add(this.LabelSearch);
+            this.Controls.Add(this.TextBoxName);
+            this.Controls.Add(this.TextBoxCategory);
+            this.Controls.Add(this.TextBoxStructure);
+            this.Controls.Add(this.TextBoxDefinition);
+            this.Controls.Add(this.TextBoxSearch);
+            this.Controls.Add(this.ListViewDisplay);
             this.Name = "FormDataStructureMatrix";
             this.Text = "Data Structure Matrix";
             this.Load += new System.EventHandler(this.FormDataStructureMatrix_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormDataStructureMatrix_MouseMove);
             this.statusStripBar.ResumeLayout(false);
             this.statusStripBar.PerformLayout();
             this.ResumeLayout(false);
@@ -306,27 +312,27 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewDisplay;
+        private System.Windows.Forms.ListView ListViewDisplay;
         private System.Windows.Forms.ColumnHeader dataStructureName;
         private System.Windows.Forms.ColumnHeader dataStructureCategory;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.TextBox textBoxDefinition;
-        private System.Windows.Forms.TextBox textBoxStructure;
-        private System.Windows.Forms.TextBox textBoxCategory;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.TextBox TextBoxSearch;
+        private System.Windows.Forms.TextBox TextBoxDefinition;
+        private System.Windows.Forms.TextBox TextBoxStructure;
+        private System.Windows.Forms.TextBox TextBoxCategory;
+        private System.Windows.Forms.TextBox TextBoxName;
+        private System.Windows.Forms.Label LabelSearch;
         private System.Windows.Forms.Label labelStructure;
         private System.Windows.Forms.Label labelCategory;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelDefinition;
-        private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonModify;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button ButtonSearch;
+        private System.Windows.Forms.Button ButtonClear;
+        private System.Windows.Forms.Button ButtonDelete;
+        private System.Windows.Forms.Button ButtonModify;
+        private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.StatusStrip statusStripBar;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.Button ButtonSave;
+        private System.Windows.Forms.Button ButtonOpen;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
