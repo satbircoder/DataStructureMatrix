@@ -183,7 +183,15 @@ namespace DataStructureMatrix
         #region Utilities
         private void ButtonClear_Click(object sender, EventArgs e)
         {
-            CLearTextBox();
+            if(TextBoxName.Text != "" || TextBoxCategory.Text != "" || TextBoxStructure.Text != "" || TextBoxDefinition.Text != "")
+            {
+                CLearTextBox();
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "Nothing to Clear"; 
+            }
+            
         }
 
         private void CLearTextBox()
@@ -203,6 +211,7 @@ namespace DataStructureMatrix
         private void ListViewDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
             CLearTextBox();
+             
         }
         private bool DuplicateCheck()// Function to stop duplicate value in the Array
         {
@@ -276,7 +285,7 @@ namespace DataStructureMatrix
                 bool found = false;
                 int min = 0;
                 int mid = 0;
-                int max = maxRows;
+                int max = maxRows-1;
                 string target = TextBoxSearch.Text;
 
 
@@ -317,7 +326,7 @@ namespace DataStructureMatrix
             }
             else
             {
-                toolStripStatusLabel1.Text = "Please enter a text into the TextBox";
+                MessageBox.Show("Please Enter data in text box to search ", "System Infromation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             TextBoxSearch.Clear();
         }
@@ -411,10 +420,12 @@ namespace DataStructureMatrix
                 if (saveFileDialog.FileName != "")
                 {
                     SaveBinFile(fileName);
+                    MessageBox.Show("File Has been Saved", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     SaveBinFile(defaultFileName);
+                    MessageBox.Show("User has canceled to save data but file saved under name Definition.bin", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception)
@@ -467,6 +478,11 @@ namespace DataStructureMatrix
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     OpenBinFile(openFileDialog.FileName);
+                    toolStripStatusLabel1.Text = "File has been uploaded Successfully";
+                }
+                else
+                {
+                    toolStripStatusLabel1.Text = "User has canceled to open file";
                 }
             }
             catch(Exception)
@@ -478,7 +494,7 @@ namespace DataStructureMatrix
         #endregion OpenFile
         
         // This function will load the data in to the list view on form load if enabled
-        #region Array Loader
+        #region Form Load
 
         private void FormDataStructureMatrix_Load(object sender, EventArgs e)
         {
@@ -496,7 +512,7 @@ namespace DataStructureMatrix
             toolTip1.SetToolTip(TextBoxStructure, "Display and add Data Structure type using this box");
             toolTip1.SetToolTip(TextBoxDefinition, "Display and add Data Structure Definition using this box");
             toolTip1.SetToolTip(TextBoxSearch, "Enter data to search in the list");
-            toolTip1.SetToolTip(ListViewDisplay, "Click to select a row and Double click in empty region to clear text boxes and deselect an item");
+            toolTip1.SetToolTip(ListViewDisplay, "Click to select a row and click in empty region to clear text boxes and deselect an item");
         }
         private void ArrayLoader()
         {
@@ -540,8 +556,9 @@ namespace DataStructureMatrix
                         
         }
 
-        #endregion Array Loader
 
-        
+        #endregion Form Load
+
+       
     }
 }
